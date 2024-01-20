@@ -1,7 +1,0 @@
-{
-    "scripts": {
-        "dokku": {
-            "postdeploy": "yarn webpack --mode=production --node-env=production"
-        }
-    }
-}
