@@ -1,0 +1,9 @@
+{
+  "name": "ar",
+  "version": "1.0.0",
+  "description": "Augmented Reality project",
+  "main": "index.js",
+  "repository": "0.0.0.0",
+  "author": "Nic Martin <nicholas.martin@marketdojo.com>",
+  "license": "MIT"
+}
