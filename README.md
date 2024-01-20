@@ -21,3 +21,17 @@ dokku config:set <dokku_app_name> NGINX_ROOT=dist
 
 TODO:
 1. dokku builds the app twice
+2. More efficiently create multiple objects
+
+# Development
+1. App can run in docker container, either from command line 
+```
+docker build .
+```
+
+...or inside vscode (open this folder in container)
+
+2. Run in development mode
+```
+yarn run webpack-dev-server
+```
