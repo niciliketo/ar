@@ -1,45 +1,33 @@
 import * as THREE from 'three';
-import { VRButton } from './three/addons/webxr/VRButton.js'
+import { VRButton } from './three/addons/webxr/VRButton.js';
+import { createScene } from './scene';
+import { createCamera } from './camera';
+import { createRenderer } from './renderer';
+import { createCube } from './cube';
+
+const scene = createScene();
+const camera = createCamera();
+const renderer = createRenderer();
+const count = 10;
+const cubes: THREE.Object3D<THREE.Object3DEventMap>[] = [];
+
+for (var i = 0; i < count; i++) {
+    const x = Math.random() * 4 - 2;
+    const y = Math.random() * 4;
+    const z = Math.random() * 4 - 2;
+    const color = Math.random() * 0xffffff
+    cubes.push(createCube([x, y, z], color));
+    scene.add(cubes[i]);
+}
 
 
-// Create a scene
-const scene = new THREE.Scene();
 
-// ligtj
-const light = new THREE.DirectionalLight(0xffffff, 3);
-light.position.set(0, 500, 2000);
-scene.add(light);
-// Create a camera
-const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 50);
-camera.position.set(0, 1.6, 3);
-// Create a renderer with WebXR enabled
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.xr.enabled = true;
-
-
-// Create a cube
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-// Put it in front of the camera
-cube.position.set(0, 1, - 5);
-scene.add(cube);
-
-// Position the camera
-camera.position.z = 5;
-
-// Render the scene
-//function animate() {
 renderer.setAnimationLoop(() => {
-    console.log('render');
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
+    cubes.forEach((cube, index) => {
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+    })
     renderer.render(scene, camera);
 });
-//}
 
-//animate()
-
-// Add the VR button
-document.body.appendChild(VRButton.createButton(renderer));;
+document.body.appendChild(VRButton.createButton(renderer));
