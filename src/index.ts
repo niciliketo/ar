@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { ARButton } from './three/addons/webxr/ARButton.js';
 import { VRButton } from './three/addons/webxr/VRButton.js';
 import { createScene } from './scene';
 import { createCamera } from './camera';
@@ -30,4 +31,6 @@ renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
 });
 
-document.body.appendChild(VRButton.createButton(renderer));
+//document.body.appendChild(VRButton.createButton(renderer));
+//document.body.appendChild(document.createElement('br'));
+document.body.appendChild(ARButton.createButton(renderer));
