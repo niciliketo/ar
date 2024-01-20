@@ -7,8 +7,12 @@
   "author": "Nic Martin <nicholas.martin@marketdojo.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/three": "^0.160.0",
+    "@types/webxr": "^0.5.10",
+    "three": "^0.160.0",
     "typescript": "^5.3.3",
-    "webpack": "^5.89.0"
+    "webpack": "^5.89.0",
+    "webxr": "^0.0.0"
   },
   "devDependencies": {
     "@webpack-cli/generators": "^3.0.7",
