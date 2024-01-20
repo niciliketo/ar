@@ -1,0 +1,7 @@
+{
+    "scripts": {
+        "dokku": {
+            "predeploy": "yarn webpack --mode=production --node-env=production"
+        }
+    }
+}
