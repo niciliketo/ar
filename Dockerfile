@@ -1,11 +1,11 @@
-#FROM node
+FROM node
 
-#WORKDIR /app
+WORKDIR /app
 
-#COPY package.json yarn.lock /app
-#RUN cd /app \
-#    && yarn install --pure-lockfile
+COPY package.json yarn.lock /app
+RUN cd /app \
+    && yarn install --pure-lockfile
 
-#COPY . /app
+COPY . /app
 # Command to keep the container alive
-#CMD tail -f package.json 
+CMD tail -f package.json 
