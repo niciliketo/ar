@@ -1,10 +1,9 @@
 import * as THREE from 'three';
-import { ARButton } from './three/addons/webxr/ARButton.js';
-import { VRButton } from './three/addons/webxr/VRButton.js';
 import { createScene } from './scene';
 import { createCamera } from './camera';
 import { createRenderer } from './renderer';
 import { createCube } from './cube';
+import { addXRButton } from './xrButton';
 
 const scene = createScene();
 const camera = createCamera();
@@ -21,8 +20,6 @@ for (var i = 0; i < count; i++) {
     scene.add(cubes[i]);
 }
 
-
-
 renderer.setAnimationLoop(() => {
     cubes.forEach((cube, index) => {
         cube.rotation.x += 0.01;
@@ -31,6 +28,4 @@ renderer.setAnimationLoop(() => {
     renderer.render(scene, camera);
 });
 
-//document.body.appendChild(VRButton.createButton(renderer));
-//document.body.appendChild(document.createElement('br'));
-document.body.appendChild(ARButton.createButton(renderer));
+addXRButton(renderer);

@@ -7,24 +7,33 @@ yarn build
 ```
 
 To run in development
+
 ```
 yarn webpack-dev-server
 ```
 
 # Dokku
+
 This contains config to deploy to dokku. Couple of things to note.
+
 1. you will need dokku setup , along with the nginx plugin :-)
 2. The static site outputs to /dist . To tell dokku about this:
+
 ```
 dokku config:set <dokku_app_name> NGINX_ROOT=dist
 ```
 
 TODO:
+
 1. dokku builds the app twice
 2. More efficiently create multiple objects
+3. Write tests
+4. switch between ar and vr automatically
 
 # Development
-1. App can run in docker container, either from command line 
+
+1. App can run in docker container, either from command line
+
 ```
 docker build .
 ```
@@ -32,6 +41,7 @@ docker build .
 ...or inside vscode (open this folder in container)
 
 2. Run in development mode
+
 ```
 yarn run webpack-dev-server
 ```
