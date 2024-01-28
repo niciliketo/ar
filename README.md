@@ -28,7 +28,7 @@ TODO:
 1. dokku builds the app twice
 2. More efficiently create multiple objects
 3. Write tests
-4. switch between ar and vr automatically
+4. Physics engine
 
 # Development
 
